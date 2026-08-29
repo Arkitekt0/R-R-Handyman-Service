@@ -1,409 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R&R Handyman Services | Colorado</title>
-  <meta name="description" content="R&R Handyman Services in Colorado. Reliable, affordable home repair, maintenance, and installation." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="R&amp;R Handyman provides dependable residential repairs, installations, deck and fence maintenance, and home improvement services across Southern Colorado."
+  >
+
+  <title>R&amp;R Handyman | Reliable Home Repairs in Southern Colorado</title>
+
   <style>
     :root {
-      --primary-red: #b30000;
-      --dark-red: #800000;
-      --light-gray: #f5f5f5;
-      --text-dark: #222222;
-      --text-light: #ffffff;
+      --red: #c8102e;
+      --red-dark: #9c0c24;
+      --red-deep: #7a091b;
+      --red-soft: #fdecef;
+      --white: #ffffff;
+      --off-white: #faf7f7;
+      --ink: #1f2933;
+      --muted: #52606d;
+      --border: #e6d5d8;
+      --shadow-sm: 0 8px 24px rgba(200, 16, 46, 0.08);
+      --shadow-lg: 0 22px 55px rgba(122, 9, 27, 0.18);
+      --radius: 16px;
+      --max-width: 1180px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--off-white);
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--text-dark);
-      background-color: #ffffff;
       line-height: 1.6;
-      font-size: 125%; /* ← 25% larger text */
     }
 
-    header {
-      background: var(--primary-red);
-      color: var(--text-light);
-      padding: 1rem 2rem;
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--red-dark);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 32px;
+      height: 3px;
+      background: var(--red);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--red-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      margin-bottom: 1.25rem;
+      color: var(--white);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 3vw, 3rem);
+    }
+
+    h3 {
+      margin-bottom: 0.65rem;
+      font-size: 1.25rem;
+    }
+
+    .lead {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.8rem 1.2rem;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-weight: 800;
+      text-align: center;
+      transition: transform 0.2s ease, background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--red);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: var(--red-dark);
+    }
+
+    .button-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.75);
+      background: transparent;
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      color: var(--red-deep);
+      background: var(--white);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--white);
+      background: rgba(122, 9, 27, 0.97);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      gap: 1rem;
+      min-height: 76px;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      color: var(--white);
+      font-weight: 900;
+      letter-spacing: 0.04em;
     }
 
     .logo-mark {
-      width: 48px;
-      height: 48px;
+      display: grid;
+      flex: 0 0 auto;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border: 2px solid var(--white);
       border-radius: 50%;
-      border: 3px solid var(--text-light);
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .site-nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.1rem;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: #ffd6dc;
     }
 
-    .logo-text span:first-child {
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      margin-left: 1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
+    .header-phone {
+      padding: 0.55rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 800;
     }
 
     .hero {
-      display: flex;
-      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(120deg, rgba(122, 9, 27, 0.96), rgba(200, 16, 46, 0.9)),
+        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85")
+          center / cover;
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -150px;
+      bottom: -180px;
+      width: 520px;
+      height: 520px;
+      border: 60px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(270px, 0.7fr);
       align-items: center;
-      padding: 2.5rem 2rem;
-      background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #ffffff 50%,
-        #ffe5e5 100%
-      );
-      border-bottom: 4px solid var(--primary-red);
+      gap: 4rem;
+      min-height: 640px;
+      padding: 7rem 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-copy .eyebrow {
+      color: #ffd6dc;
+    }
+
+    .hero-copy .eyebrow::before {
+      background: #ffd6dc;
     }
 
     .hero-text {
-      flex: 1 1 320px;
-      padding-right: 2rem;
+      max-width: 650px;
+      margin-bottom: 2rem;
+      color: #ffe9ec;
+      font-size: 1.14rem;
     }
 
-    .hero-text h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--dark-red);
-    }
-
-    .hero-text h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: #555555;
-    }
-
-    .hero-text p {
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--primary-red);
-      color: var(--text-light);
-      padding: 0.3rem 0.7rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 3px;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-cta {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
+      gap: 0.9rem;
     }
 
-    .btn-primary {
-      background: var(--primary-red);
-      color: var(--text-light);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 3px;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .btn-primary:hover {
-      background: var(--dark-red);
-    }
-
-    .hero-phone {
-      font-weight: bold;
-      color: var(--dark-red);
-    }
-
-    .hero-side {
-      flex: 1 1 280px;
-      padding-top: 1rem;
-    }
-
-    .hero-card {
-      border: 2px solid var(--primary-red);
-      border-radius: 4px;
-      padding: 1.5rem;
-      background: #ffffff;
-      max-width: 340px;
-      margin: 0 auto;
-    }
-
-    .hero-card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--dark-red);
-    }
-
-    .hero-list li {
-      margin-left: 1.25rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .section {
+    .hero-panel {
       padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(12px);
     }
 
-    .section-alt {
-      background: var(--light-gray);
-      border-top: 1px solid #dddddd;
-      border-bottom: 1px solid #dddddd;
+    .hero-panel h2 {
+      color: var(--white);
+      font-size: 1.55rem;
     }
 
-    .section h2 {
-      margin-bottom: 1rem;
-      color: var(--dark-red);
+    .hero-panel p {
+      color: #ffe9ec;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 0.85rem;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .check-list li::before {
+      display: grid;
+      flex: 0 0 23px;
+      width: 23px;
+      height: 23px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--red-deep);
+      background: #ffd6dc;
+      content: "✓";
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .trust-bar {
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .trust-item {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .trust-item + .trust-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--red-deep);
+      font-size: 1.1rem;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.35rem;
     }
 
     .service-card {
-      border: 1px solid #dddddd;
-      border-radius: 4px;
-      padding: 1rem;
-      background: #ffffff;
+      min-height: 100%;
+      padding: 1.85rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .service-card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--primary-red);
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon {
+      display: grid;
+      width: 55px;
+      height: 55px;
+      place-items: center;
+      margin-bottom: 1.25rem;
+      border-radius: 12px;
+      color: var(--red-dark);
+      background: var(--red-soft);
+      font-size: 1.5rem;
+      font-weight: 900;
     }
 
     .service-card p {
-      font-size: 0.95rem;
+      margin-bottom: 0;
+      color: var(--muted);
     }
 
-    .two-column {
+    .work-section {
+      color: var(--white);
+      background: var(--red-deep);
+    }
+
+    .work-section h2 {
+      color: var(--white);
+    }
+
+    .work-section .lead {
+      color: #ffe9ec;
+    }
+
+    .process-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      align-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
     }
 
-    .list-check li {
-      margin-left: 1.25rem;
-      margin-bottom: 0.4rem;
+    .process-step {
+      position: relative;
+      padding: 1.6rem;
+      border-top: 4px solid var(--white);
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    .list-check li::marker {
-      content: "✓ ";
-      color: var(--primary-red);
-      font-weight: bold;
+    .process-number {
+      display: block;
+      margin-bottom: 1rem;
+      color: #ffd6dc;
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .process-step h3 {
+      color: var(--white);
+    }
+
+    .process-step p {
+      margin-bottom: 0;
+      color: #ffe9ec;
+      font-size: 0.94rem;
+    }
+
+    .standards-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .standards-image {
+      min-height: 410px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(rgba(200, 16, 46, 0.25), rgba(200, 16, 46, 0.25)),
+        url("https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1000&q=85")
+          center / cover;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .standard {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .standard:last-child {
+      border-bottom: 0;
+    }
+
+    .standard-number {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--red-dark);
+      background: var(--red-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .standard p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .contact-section {
+      padding: 5rem 0;
+      color: var(--white);
+      background:
+        linear-gradient(120deg, rgba(122, 9, 27, 0.97), rgba(200, 16, 46, 0.92));
     }
 
     .contact-card {
-      border: 2px solid var(--primary-red);
-      border-radius: 4px;
-      padding: 1rem 1.25rem;
-      background: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-card h2 {
+      margin-bottom: 0.65rem;
+      color: var(--white);
     }
 
     .contact-card p {
-      margin-bottom: 0.4rem;
+      max-width: 720px;
+      margin-bottom: 0;
+      color: #ffe9ec;
     }
 
-    .contact-label {
-      font-weight: bold;
-      color: var(--dark-red);
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-end;
     }
 
-    footer {
-      background: var(--dark-red);
-      color: var(--text-light);
-      text-align: center;
-      padding: 1rem 0.5rem;
-      font-size: 0.85rem;
-      margin-top: 1rem;
+    .site-footer {
+      padding: 1.5rem 0;
+      color: #ffd6dc;
+      background: var(--red-deep);
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      header {
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-content,
+      .standards-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-content {
+        min-height: auto;
+      }
+
+      .hero-panel {
+        max-width: 560px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .standards-image {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-nav {
+        display: none;
+      }
+
+      .header-phone {
+        font-size: 0.8rem;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .hero-content {
+        padding: 5.5rem 0;
+      }
+
+      .trust-grid,
+      .services-grid,
+      .process-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item + .trust-item {
+        border-top: 1px solid var(--border);
+        border-left: 0;
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+
+      .footer-content {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .header-phone {
+        display: none;
       }
 
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-left: -0.25rem;
-      }
-
-      nav a {
-        margin-left: 0.25rem;
-      }
-
-      .hero-text {
-        padding-right: 0;
+      .hero-actions,
+      .hero-actions .button,
+      .contact-links,
+      .contact-links .button {
+        width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">
-      <div class="logo-mark">R&amp;R</div>
-      <div class="logo-text">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="logo" href="#home" aria-label="R and R Handyman home">
+        <span class="logo-mark">R&amp;R</span>
         <span>R&amp;R Handyman</span>
-        <span>Southern Colorado Home Repair &amp; Maintenance</span>
-      </div>
-    </div>
-</header>
+      </a>
 
-  <section class="hero">
-    <div class="hero-text">
-      <div class="hero-badge">Local Southern Colorado handyman</div>
-      <h1>Reliable Repairs &amp; Renovations for Your Home</h1>
-      <h2>From small fixes to full‑room refreshes, R&amp;R Handyman has you covered.</h2>
-      <p>
-        We provide dependable handyman services across Southern Colorado, focusing on quality work,
-        clear communication, and affordable pricing.
-      </p>
-</div>
-    <div class="hero-side">
-      <div class="hero-card">
-        <h3>Same‑week appointments available</h3>
-        <p>Ask about:</p>
-        <ul class="hero-list">
-          <li>Repairs &amp; punch‑list items</li>
-          <li>Drywall &amp; paint touch‑ups</li>
-          <li>Fixtures, fans, and TV mounting</li>
-          <li>Seasonal maintenance</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-  <section id="services" class="section">
-    <h2>Handyman services</h2>
-    <p style="margin-bottom: 1rem;">
-      R&amp;R Handyman offers a wide range of residential services. Here are some of the most common
-      requests from Colorado homeowners:
-    </p>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>General repairs</h3>
-        <p>Doors, trim, hardware, caulking, minor drywall, and other everyday fixes around your home.</p>
-      </div>
-      <div class="service-card">
-        <h3>Carpentry &amp; installs</h3>
-        <p>Shelves, cabinets, TV mounts, closet systems, handrails, and small framing projects.</p>
-      </div>
-<div class="service-card">
-      <h3>Exterior &amp; seasonal</h3>
-        <p>Deck repairs, fence fixes, power‑washing, weather‑sealing, and seasonal maintenance.</p>
-      </div>
-      <div class="service-card">
-        <h3>Custom projects</h3>
-        <p>Have something unique in mind? Tell us about your project and we’ll help you plan it.</p>
-      </div>
+      <a class="header-phone" href="tel:+17197739272">
+        Call (719) 773-9272
+      </a>
     </div>
-  </section>
+  </header>
 
-  <section id="areas" class="section section-alt">
-    <h2>Colorado service area</h2>
-    <div class="two-column">
-      <div>
-        <p>
-          R&amp;R Handyman proudly serves homeowners in Colorado. If you’re just outside our
-          core area, reach out and we’ll see what we can do.
-        </p>
-        <ul class="list-check" style="margin-top: 0.75rem;">
-          <li>La Junta and surrounding communities</li>
-          <li>Nearby towns in Otero, Crowley, and Bent Counties</li>
-          <li>Smaller rural properties by appointment</li>
-        </ul>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Southern Colorado Home Services</p>
+
+          <h1>Dependable handyman service you can count on.</h1>
+
+          <p class="hero-text">
+            We provide dependable handyman services across Southern Colorado,
+            focusing on quality work, clear communication, and affordable
+            pricing.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:+17197739272">
+              Call (719) 773-9272
+            </a>
+
+            <a class="button button-secondary" href="#services">
+              Explore Our Services
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="R and R Handyman commitments">
+          <h2>Ask About Our Services</h2>
+
+          <p>
+            R&amp;R Handyman offers a wide range of residential services. Here
+            are some of the most common requests from Colorado homeowners.
+          </p>
+
+          <ul class="check-list">
+            <li>Quality work, clear communication, and affordable pricing</li>
+            <li>Respectful service from start to finish</li>
+            <li>Honest recommendations and clear estimates</li>
+          </ul>
+        </aside>
       </div>
-      <div> </div>
+    </section>
+
+    <section class="trust-bar" aria-label="Company values">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <strong>Quality Work</strong>
+          <span>We treat every home like it’s our own.</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>Clear Communication</strong>
+          <span>Clear estimates and honest recommendations.</span>
+        </div>
+
+        <div class="trust-item">
+          <strong>Affordable Pricing</strong>
+          <span>Dependable service across Southern Colorado.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Residential Handyman Services</p>
+          <h2>Common requests from Colorado homeowners.</h2>
+          <p class="lead">
+            R&amp;R Handyman offers a wide range of residential services. Here
+            are some of the most common requests from Colorado homeowners.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">⌂</div>
+            <h3>Everyday Home Fixes</h3>
+            <p>
+              Doors, trim, hardware, caulking, minor drywall, and other everyday
+              fixes around your home.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">⌘</div>
+            <h3>Installations &amp; Projects</h3>
+            <p>
+              Shelves, cabinets, TV mounts, closet systems, handrails, and small
+              framing projects.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">↟</div>
+            <h3>Exterior &amp; Seasonal Work</h3>
+            <p>
+              Deck repairs, fence fixes, power-washing, weather-sealing, and
+              seasonal maintenance.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work-section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">About R&amp;R Handyman</p>
+          <h2>Built on simple values.</h2>
+          <p class="lead">
+            R&amp;R Handyman was built on simple values: show up on time, do the
+            job right, and stand behind the work. We treat every home like it’s
+            our own.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <span class="process-number">VALUE 01</span>
+            <h3>Show up on time</h3>
+            <p>
+              We respect your schedule and your home, arriving prepared and
+              ready to work.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="process-number">VALUE 02</span>
+            <h3>Do the job right</h3>
+            <p>
+              We focus on quality work and honest recommendations for every
+              repair and project.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="process-number">VALUE 03</span>
+            <h3>Stand behind the work</h3>
+            <p>
+              We treat every home like it’s our own and stand behind the work we
+              complete.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="process-number">VALUE 04</span>
+            <h3>Respectful service</h3>
+            <p>
+              Whether it’s a quick repair or a multi-day project, you’ll get
+              respectful service from start to finish.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coverage">
+      <div class="container standards-grid">
+        <div class="standards-image" role="img" aria-label="Handyman tools arranged on a workbench"></div>
+
+        <div>
+          <p class="eyebrow">Service Area</p>
+          <h2>Proudly serving homeowners in Colorado.</h2>
+
+          <div class="standard">
+            <span class="standard-number">01</span>
+            <div>
+              <h3>Southern Colorado</h3>
+              <p>
+                We provide dependable handyman services across Southern
+                Colorado.
+              </p>
+            </div>
+          </div>
+
+          <div class="standard">
+            <span class="standard-number">02</span>
+            <div>
+              <h3>Outside the core area?</h3>
+              <p>
+                R&amp;R Handyman proudly serves homeowners in Colorado. If
+                you’re just outside our core area, reach out and we’ll see what
+                we can do.
+              </p>
+            </div>
+          </div>
+
+          <div class="standard">
+            <span class="standard-number">03</span>
+            <div>
+              <h3>Something unique in mind?</h3>
+              <p>
+                Tell us about your project and we’ll help you plan it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">Get In Touch</p>
+            <h2>Whether it’s a quick repair or a multi-day project.</h2>
+            <p>
+              You’ll get clear estimates, honest recommendations, and respectful
+              service from start to finish.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a class="button button-primary" href="tel:+17197739272">
+              Call (719) 773-9272
+            </a>
+
+            <a class="button button-secondary" href="mailto:rrhandyman719@gmail.com">
+              Email Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>© 2026 R&amp;R Handyman. Serving Southern Colorado.</span>
+      <span>Phone: (719) 773-9272 · Email: rrhandyman719@gmail.com</span>
     </div>
-  </section>
-
-  <section id="about" class="section">
-    <h2>About R&amp;R Handyman</h2>
-    <div class="two-column">
-      <div>
-        <p>
-          R&amp;R Handyman was built on simple values: show up on time, do the job right,
-          and stand behind the work. We treat every home like it’s our own.
-        </p>
-        <p style="margin-top: 0.5rem;">
-          Whether it’s a quick repair or a multi‑day project, you’ll get clear estimates,
-          honest recommendations, and respectful service from start to finish.
-        </p>
-      </div>
-      <div>
-        <ul class="list-check">
-          <li>Locally owned and operated in Colorado</li>
-          <li>Residential handyman and small project specialist</li>
-          <li>Flexible scheduling and clear communication</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section section-alt">
-    <h2>Request a quote</h2>
-    <div class="two-column">
-      <div class="contact-card">
-        <p><span class="contact-label">Phone:</span> (719) 773‑9272</p>
-        <p><span class="contact-label">Email:</span> rrhandyman719@gmail.com</p>
-        <div>All emergency calls during the weekend carry an automatic fee of 75 Dollars!&nbsp; &nbsp; &nbsp;</div>
-      </div>
-<div> </div>
-    </div>
-  </section>
-
-  <footer>
-    &copy; <span id="year"></span> R&amp;R Handyman Services • Colorado • All rights reserved.
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
